@@ -4,7 +4,7 @@
 #
 Name     : R-htmltools
 Version  : 0.3.5
-Release  : 3
+Release  : 4
 URL      : https://cran.r-project.org/src/contrib/htmltools_0.3.5.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/htmltools_0.3.5.tar.gz
 Summary  : Tools for HTML
@@ -31,9 +31,11 @@ lib components for the R-htmltools package.
 
 %build
 export LANG=C
+export SOURCE_DATE_EPOCH=1484540036
 
 %install
 rm -rf %{buildroot}
+export SOURCE_DATE_EPOCH=1484540036
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -43,7 +45,7 @@ export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export LDFLAGS="$LDFLAGS  -Wl,-z -Wl,relro"
 mkdir -p %{buildroot}/usr/lib64/R/library
-R CMD INSTALL --install-tests --build  -l %{buildroot}/usr/lib64/R/library htmltools
+R CMD INSTALL --install-tests --built-timestamp=${SOURCE_DATE_EPOCH} --build  -l %{buildroot}/usr/lib64/R/library htmltools
 %{__rm} -rf %{buildroot}%{_datadir}/R/library/R.css
 
 %files
