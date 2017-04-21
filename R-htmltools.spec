@@ -4,7 +4,7 @@
 #
 Name     : R-htmltools
 Version  : 0.3.5
-Release  : 7
+Release  : 8
 URL      : https://cran.r-project.org/src/contrib/htmltools_0.3.5.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/htmltools_0.3.5.tar.gz
 Summary  : Tools for HTML
@@ -30,12 +30,15 @@ lib components for the R-htmltools package.
 %setup -q -c -n htmltools
 
 %build
+export http_proxy=http://127.0.0.1:9/
+export https_proxy=http://127.0.0.1:9/
+export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1484540036
+export SOURCE_DATE_EPOCH=1492798613
 
 %install
 rm -rf %{buildroot}
-export SOURCE_DATE_EPOCH=1484540036
+export SOURCE_DATE_EPOCH=1492798613
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -53,6 +56,7 @@ R CMD INSTALL --install-tests --built-timestamp=${SOURCE_DATE_EPOCH} --build  -l
 /usr/lib64/R/library/htmltools/DESCRIPTION
 /usr/lib64/R/library/htmltools/INDEX
 /usr/lib64/R/library/htmltools/Meta/Rd.rds
+/usr/lib64/R/library/htmltools/Meta/features.rds
 /usr/lib64/R/library/htmltools/Meta/hsearch.rds
 /usr/lib64/R/library/htmltools/Meta/links.rds
 /usr/lib64/R/library/htmltools/Meta/nsInfo.rds
