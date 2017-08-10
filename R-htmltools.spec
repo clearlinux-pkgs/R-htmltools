@@ -4,7 +4,7 @@
 #
 Name     : R-htmltools
 Version  : 0.3.6
-Release  : 12
+Release  : 13
 URL      : https://cran.r-project.org/src/contrib/htmltools_0.3.6.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/htmltools_0.3.6.tar.gz
 Summary  : Tools for HTML
@@ -34,11 +34,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1493394529
+export SOURCE_DATE_EPOCH=1502406057
 
 %install
 rm -rf %{buildroot}
-export SOURCE_DATE_EPOCH=1493394529
+export SOURCE_DATE_EPOCH=1502406057
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -48,7 +48,19 @@ export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export LDFLAGS="$LDFLAGS  -Wl,-z -Wl,relro"
 mkdir -p %{buildroot}/usr/lib64/R/library
+
+mkdir -p ~/.R
+mkdir -p ~/.stash
+echo "CFLAGS = $CFLAGS -march=haswell -ftree-vectorize " > ~/.R/Makevars
+echo "FFLAGS = $FFLAGS -march=haswell -ftree-vectorize " >> ~/.R/Makevars
+echo "CXXFLAGS = $CXXFLAGS -march=haswell -ftree-vectorize " >> ~/.R/Makevars
 R CMD INSTALL --install-tests --built-timestamp=${SOURCE_DATE_EPOCH} --build  -l %{buildroot}/usr/lib64/R/library htmltools
+for i in `find %{buildroot}/usr/lib64/R/ -name "*.so"`; do mv $i $i.avx2 ; mv $i.avx2 ~/.stash/; done
+echo "CFLAGS = $CFLAGS -ftree-vectorize " > ~/.R/Makevars
+echo "FFLAGS = $FFLAGS -ftree-vectorize " >> ~/.R/Makevars
+echo "CXXFLAGS = $CXXFLAGS -ftree-vectorize " >> ~/.R/Makevars
+R CMD INSTALL --preclean --install-tests --built-timestamp=${SOURCE_DATE_EPOCH} --build  -l %{buildroot}/usr/lib64/R/library htmltools
+cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 %{__rm} -rf %{buildroot}%{_datadir}/R/library/R.css
 
 %files
@@ -83,3 +95,4 @@ R CMD INSTALL --install-tests --built-timestamp=${SOURCE_DATE_EPOCH} --build  -l
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/R/library/htmltools/libs/htmltools.so
+/usr/lib64/R/library/htmltools/libs/htmltools.so.avx2
