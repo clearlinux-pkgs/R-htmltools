@@ -4,16 +4,16 @@
 #
 Name     : R-htmltools
 Version  : 0.3.6
-Release  : 32
+Release  : 33
 URL      : https://cran.r-project.org/src/contrib/htmltools_0.3.6.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/htmltools_0.3.6.tar.gz
 Summary  : Tools for HTML
 Group    : Development/Tools
 License  : GPL-2.0+
-Requires: R-htmltools-lib
+Requires: R-htmltools-lib = %{version}-%{release}
 Requires: R-Rcpp
 BuildRequires : R-Rcpp
-BuildRequires : clr-R-helpers
+BuildRequires : buildreq-R
 
 %description
 No detailed description available
@@ -34,11 +34,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1523308348
+export SOURCE_DATE_EPOCH=1552947188
 
 %install
+export SOURCE_DATE_EPOCH=1552947188
 rm -rf %{buildroot}
-export SOURCE_DATE_EPOCH=1523308348
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
