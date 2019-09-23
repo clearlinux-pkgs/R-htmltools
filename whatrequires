@@ -1,24 +1,21 @@
 # This file contains recursive sources that require this package
 R-DT
 R-Hmisc
-R-RcmdrMisc
-R-SGP
-R-adegenet
+R-IRkernel
 R-crosstalk
 R-dygraphs
 R-ggvis
-R-haplo.stats
 R-htmlTable
 R-htmlwidgets
 R-leaflet
 R-listviewer
 R-manipulateWidget
 R-miniUI
-R-modest
+R-plotly
 R-questionr
 R-reactR
 R-repr
-R-reprex
+R-rgl
 R-rhandsontable
 R-rmarkdown
 R-rms
@@ -26,6 +23,5 @@ R-shiny
 R-shinyBS
 R-shinydashboard
 R-shinyjs
-R-shinythemes
-R-tibble
 R-visNetwork
+apache-spark
