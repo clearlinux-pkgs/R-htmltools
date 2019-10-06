@@ -2,6 +2,7 @@
 R-DT
 R-Hmisc
 R-IRkernel
+R-colourpicker
 R-crosstalk
 R-dygraphs
 R-ggvis
@@ -16,12 +17,12 @@ R-questionr
 R-reactR
 R-repr
 R-rgl
-R-rhandsontable
 R-rmarkdown
 R-rms
 R-shiny
 R-shinyBS
 R-shinydashboard
 R-shinyjs
+R-tibble
 R-visNetwork
 apache-spark
