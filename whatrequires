@@ -1,7 +1,6 @@
 # This file contains recursive sources that require this package
 R-DT
 R-Hmisc
-R-IRkernel
 R-colourpicker
 R-crosstalk
 R-dygraphs
@@ -24,6 +23,4 @@ R-shiny
 R-shinyBS
 R-shinydashboard
 R-shinyjs
-R-tibble
 R-visNetwork
-apache-spark
