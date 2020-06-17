@@ -4,7 +4,6 @@ R-Hmisc
 R-colourpicker
 R-crosstalk
 R-dygraphs
-R-fontquiver
 R-ggvis
 R-htmlTable
 R-htmlwidgets
@@ -15,6 +14,7 @@ R-miniUI
 R-plotly
 R-questionr
 R-reactR
+R-reactlog
 R-repr
 R-rgl
 R-rmarkdown
