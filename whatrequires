@@ -1,6 +1,8 @@
 # This file contains recursive sources that require this package
 R-DT
+R-DiagrammeR
 R-Hmisc
+R-bslib
 R-colourpicker
 R-crosstalk
 R-dygraphs
@@ -8,6 +10,7 @@ R-formattable
 R-ggvis
 R-htmlTable
 R-htmlwidgets
+R-jquerylib
 R-kableExtra
 R-leaflet
 R-listviewer
@@ -22,10 +25,13 @@ R-repr
 R-rgl
 R-rmarkdown
 R-rms
+R-sass
 R-shiny
 R-shinyBS
 R-shinydashboard
 R-shinyjs
 R-sparkline
 R-tables
+R-vdiffr
+R-vembedr
 R-visNetwork
