@@ -6,6 +6,7 @@ R-bslib
 R-colourpicker
 R-crosstalk
 R-dygraphs
+R-fontawesome
 R-formattable
 R-ggvis
 R-htmlTable
@@ -29,7 +30,6 @@ R-sass
 R-shiny
 R-shinyBS
 R-shinydashboard
-R-shinyjs
 R-sparkline
 R-tables
 R-vdiffr
