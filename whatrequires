@@ -9,6 +9,8 @@ R-dygraphs
 R-flextable
 R-fontawesome
 R-formattable
+R-gdtools
+R-gfonts
 R-ggvis
 R-htmlTable
 R-htmlwidgets
@@ -31,7 +33,6 @@ R-shiny
 R-shinyBS
 R-shinydashboard
 R-sparkline
-R-stringr
 R-tables
 R-vdiffr
 R-vembedr
