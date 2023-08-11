@@ -4,10 +4,10 @@
 # Using build pattern: R
 #
 Name     : R-htmltools
-Version  : 0.5.5
-Release  : 72
-URL      : https://cran.r-project.org/src/contrib/htmltools_0.5.5.tar.gz
-Source0  : https://cran.r-project.org/src/contrib/htmltools_0.5.5.tar.gz
+Version  : 0.5.6
+Release  : 73
+URL      : https://cran.r-project.org/src/contrib/htmltools_0.5.6.tar.gz
+Source0  : https://cran.r-project.org/src/contrib/htmltools_0.5.6.tar.gz
 Summary  : Tools for HTML
 Group    : Development/Tools
 License  : GPL-2.0+
@@ -40,17 +40,19 @@ lib components for the R-htmltools package.
 
 %prep
 %setup -q -n htmltools
-cd %{_builddir}/htmltools
+pushd ..
+cp -a htmltools buildavx2
+popd
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1679589116
+export SOURCE_DATE_EPOCH=1691770348
 
 %install
-export SOURCE_DATE_EPOCH=1679589116
+export SOURCE_DATE_EPOCH=1691770348
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -80,6 +82,7 @@ echo "CXXFLAGS = $CXXFLAGS -ftree-vectorize " >> ~/.R/Makevars
 R CMD INSTALL --preclean --use-LTO --install-tests --data-compress=none --compress=none --built-timestamp=${SOURCE_DATE_EPOCH} --build  -l %{buildroot}/usr/lib64/R/library .
 cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 %{__rm} -rf %{buildroot}%{_datadir}/R/library/R.css
+/usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot} %{buildroot}/usr/share/clear/filemap/filemap-%{name}
 
 %files
 %defattr(-,root,root,-)
