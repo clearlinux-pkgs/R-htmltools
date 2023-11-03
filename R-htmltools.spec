@@ -5,7 +5,7 @@
 #
 Name     : R-htmltools
 Version  : 0.5.6.1
-Release  : 74
+Release  : 75
 URL      : https://cran.r-project.org/src/contrib/htmltools_0.5.6.1.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/htmltools_0.5.6.1.tar.gz
 Summary  : Tools for HTML
