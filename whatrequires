@@ -17,6 +17,7 @@ R-htmlwidgets
 R-jquerylib
 R-kableExtra
 R-leaflet
+R-leaflet.providers
 R-listviewer
 R-manipulateWidget
 R-miniUI
